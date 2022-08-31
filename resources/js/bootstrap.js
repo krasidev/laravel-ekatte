@@ -7,9 +7,11 @@ try {
     require('bootstrap-datepicker');
     require('bootstrap-datetime-picker');
     require('bootstrap-timepicker');
+    require('core-js');
     require('datatables.net-bs4');
     require('datatables.net-responsive-bs4');
     require('select2');
+    window.Swal = require('sweetalert2');
 } catch (e) {}
 
 /**
