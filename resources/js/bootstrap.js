@@ -7,6 +7,8 @@ try {
     require('bootstrap-datepicker');
     require('bootstrap-datetime-picker');
     require('bootstrap-timepicker');
+    require('datatables.net-bs4');
+    require('datatables.net-responsive-bs4');
 } catch (e) {}
 
 /**

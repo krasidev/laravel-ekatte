@@ -15,6 +15,8 @@
         "bootstrap-datepicker": "^1.9.0",
         "bootstrap-datetime-picker": "^2.4.4",
         "bootstrap-timepicker": "^0.5.2",
+        "datatables.net-bs4": "^1.12.1",
+        "datatables.net-responsive-bs4": "^2.3.0",
         "jquery": "^3.6.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
