@@ -1,3 +1,6 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -23,23 +26,33 @@
                 {{ config('app.name', 'Laravel') }}
             </a>
 
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav flex-row ml-auto">
                 <li class="nav-item dropdown">
                     <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="navbarDropdown">
-                        <a href="{{ route('logout') }}" class="dropdown-item"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                    <ul class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a href="{{ route('panel.profile.edit') }}" class="dropdown-item @if($currentRouteName == 'panel.profile.edit') active @endif">
+                                {{ __('menu.panel.profile.edit') }}
+                            </a>
+                        </li>
 
-                        <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
+                        <hr class="dropdown-divider">
+
+                        <li>
+                            <a href="{{ route('logout') }}" class="dropdown-item"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form action="{{ route('logout') }}" method="POST" id="logout-form" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
 
@@ -56,7 +69,7 @@
                     <div id="navbarNav" class="bg-white shadow-sm navbar-collapse width collapse flex-fill">
                         <nav id="panel-side-navbar">
                             <div class="input-group has-clear p-3">
-                                <input type="text" id="panel-side-nav-search" class="form-control" placeholder="Search menu">
+                                <input type="text" id="panel-side-nav-search" class="form-control" placeholder="{{ __('menu.panel.searchbar') }}">
 
                                 <div class="input-group-append">
                                     <button type="button" class="btn btn-clear btn-clear-hidden">
@@ -88,5 +101,15 @@
             </div>
         </div>
     </div>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '{{ session('success.title') }}',
+                text: '{{ session('success.text') }}',
+                confirmButtonText: '{{ __('messages.panel.alert-success.buttons.confirm') }}'
+            });
+        </script>
+    @endif
 </body>
 </html>
