@@ -11,7 +11,15 @@ return [
             'title' => '',
             'text' => 'Do you want to delete the selected entry?',
             'buttons' => [
-                'confirm' => 'Confirm',
+                'confirm' => 'Delete',
+                'cancel' => 'Cancel'
+            ]
+        ],
+        'alert-question-restore' => [
+            'title' => '',
+            'text' => 'Do you want to restore the selected entry?',
+            'buttons' => [
+                'confirm' => 'Restore',
                 'cancel' => 'Cancel'
             ]
         ],

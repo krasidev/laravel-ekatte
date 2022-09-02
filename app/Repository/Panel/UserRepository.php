@@ -18,6 +18,10 @@ class UserRepository extends Repository
 		$users = $this->getModel()
 			->select('users.*');
 
+        if (request()->trashed) {
+            $users->onlyTrashed();
+        }
+
         $datatable = datatables()->eloquent($users);
 
         $datatable->addColumn('actions', function($user) {
@@ -55,6 +59,18 @@ class UserRepository extends Repository
     {
         if ($this->getModel()->where('id', $id)->where('id', '<>', auth()->user()->id)->exists()) {
             return $this->getModel()->destroy($id);
+        }
+    }
+
+    public function restore($id)
+    {
+        return $this->getModel()->withTrashed()->findOrFail($id)->restore();
+    }
+
+    public function forceDelete($id)
+    {
+        if ($this->getModel()->withTrashed()->where('id', $id)->where('id', '<>', auth()->user()->id)->exists()) {
+            return $this->getModel()->withTrashed()->findOrFail($id)->forceDelete();
         }
     }
 }

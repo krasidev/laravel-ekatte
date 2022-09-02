@@ -34,5 +34,7 @@ Route::group([
     //Users
     Route::resource('users', UserController::class)->except('show');
     Route::get('users/data', [UserController::class, 'data'])->name('users.data');
+    Route::put('users/restore/{user}', [UserController::class, 'restore'])->name('users.restore');
+    Route::delete('users/force-delete/{user}', [UserController::class, 'forceDelete'])->name('users.force-delete');
 
 });

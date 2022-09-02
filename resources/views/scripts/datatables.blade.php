@@ -59,4 +59,37 @@ $(document).on('click', '.dt-bt-delete', function(e) {
 
     e.preventDefault();
 });
+
+$(document).on('click', '.dt-bt-restore', function(e) {
+    var element = $(this);
+
+    Swal.fire({
+        icon: 'question',
+        title: '{{ __('messages.panel.alert-question-restore.title') }}',
+        text: '{{ __('messages.panel.alert-question-restore.text') }}',
+        confirmButtonText: '{{ __('messages.panel.alert-question-restore.buttons.confirm') }}',
+        cancelButtonText: '{{ __('messages.panel.alert-question-restore.buttons.cancel') }}',
+        showCancelButton: true,
+        buttonsStyling: false,
+        customClass: {
+            confirmButton: 'swal2-styled btn btn-success m-1',
+            cancelButton: 'swal2-styled btn btn-primary m-1'
+        }
+    }).then(function(result) {
+        if (result.value) {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: element.attr('href'),
+                type: 'PUT',
+                success: function(data) {
+                    element.closest('table').DataTable().row(element.parents('tr')).remove().draw();
+                }
+            });
+        }
+    });
+
+    e.preventDefault();
+});
 </script>

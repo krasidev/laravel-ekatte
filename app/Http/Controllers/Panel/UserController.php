@@ -106,4 +106,26 @@ class UserController extends Controller
     {
         return $this->repository->data($request->all());
     }
+
+    /**
+     * Restore the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($id)
+    {
+        return $this->repository->restore($id);
+    }
+
+    /**
+     * Force delete the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function forceDelete($id)
+    {
+        return $this->repository->forceDelete($id);
+    }
 }
