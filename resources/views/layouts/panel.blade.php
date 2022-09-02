@@ -42,8 +42,7 @@
                         <hr class="dropdown-divider">
 
                         <li>
-                            <a href="{{ route('logout') }}" class="dropdown-item"
-                                onclick="event.preventDefault();
+                            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -86,6 +85,53 @@
                                         <a href="{{ route('home') }}" class="nav-link active">{{ __('Dashboard') }}</a>
                                     </li>
                                 </ul>
+                                @php
+                                    $htmlMenuNav = '';
+
+                                    foreach ([
+                                        'users' => [
+                                            'routes' => [
+                                                'panel.users.index' => [],
+                                                'panel.users.create' => []
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.users.edit'
+                                            ]
+                                        ]
+                                    ] as $module => $moduleOptions) {
+                                        if (isset($moduleOptions['routes'])) {
+                                            $htmlMenuSubnav = '';
+
+                                            foreach ($moduleOptions['routes'] as $route => $options) {
+                                                $htmlMenuSubnav .= '<li class="nav-item">
+                                                    <a href="' . route($route) . '" class="nav-link ' . ($currentRouteName == $route ? 'active' : '') . '">
+                                                        ' . __('menu.' . ($options['text'] ?? $route)) . '</a>
+                                                </li>';
+                                            }
+
+                                            if (!empty($htmlMenuSubnav)) {
+                                                $isModuleOpen = in_array($currentRouteName, array_merge(
+                                                    array_keys($moduleOptions['routes']),
+                                                    $moduleOptions['extended_routes'] ?? []
+                                                ));
+
+                                                $htmlMenuNav .= '<li class="nav-item">
+                                                    <a href="#collapse-' . $module . '" class="nav-link d-flex align-items-center ' . ($isModuleOpen ? '' : 'collapsed') . '" data-toggle="collapse" aria-expanded="' . ($isModuleOpen ? 'true' : 'false') . '" aria-controls="collapse-' . $module . '">
+                                                        ' . __('menu.panel.' . $module . '.text') . '
+                                                        <i class="plus-minus-rotate flex-shrink-0 ml-auto collapsed"></i></a>';
+
+                                                $htmlMenuNav .= '<div id="collapse-' . $module . '" class="collapse ' . ($isModuleOpen ? 'show' : '') . '"><ul class="nav flex-column">' . $htmlMenuSubnav . '</ul></div></li>';
+                                            }
+                                        } else {
+                                            $htmlMenuNav .= '<li class="nav-item">
+                                                <a href="' . route($moduleOptions['route']) . '" class="nav-link ' . ($currentRouteName == $moduleOptions['route'] ? 'active' : '') . '">
+                                                    ' . __('menu.panel.' . $module . '.text') . '
+                                                </a>
+                                            </li>';
+                                        }
+                                    }
+                                @endphp
+                                <ul class="nav flex-column">{!! $htmlMenuNav !!}</ul>
                             </div>
                         </nav>
                     </div>
@@ -96,7 +142,7 @@
                         @yield('content')
                     </div>
 
-                    @yield('script')
+                    @yield('scripts')
                 </main>
             </div>
         </div>
@@ -107,7 +153,11 @@
                 icon: 'success',
                 title: '{{ session('success.title') }}',
                 text: '{{ session('success.text') }}',
-                confirmButtonText: '{{ __('messages.panel.alert-success.buttons.confirm') }}'
+                confirmButtonText: '{{ __('messages.panel.alert-success.buttons.confirm') }}',
+                buttonsStyling: false,
+                customClass: {
+                    confirmButton: 'swal2-styled btn btn-primary m-1'
+                }
             });
         </script>
     @endif

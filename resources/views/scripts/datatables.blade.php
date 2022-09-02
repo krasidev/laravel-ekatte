@@ -26,4 +26,37 @@ $.extend(true, $.fn.dataTable.defaults, {
         }
     }
 });
+
+$(document).on('click', '.dt-bt-delete', function(e) {
+    var element = $(this);
+
+    Swal.fire({
+        icon: 'question',
+        title: '{{ __('messages.panel.alert-question.title') }}',
+        text: '{{ __('messages.panel.alert-question.text') }}',
+        confirmButtonText: '{{ __('messages.panel.alert-question.buttons.confirm') }}',
+        cancelButtonText: '{{ __('messages.panel.alert-question.buttons.cancel') }}',
+        showCancelButton: true,
+        buttonsStyling: false,
+        customClass: {
+            confirmButton: 'swal2-styled btn btn-danger m-1',
+            cancelButton: 'swal2-styled btn btn-primary m-1'
+        }
+    }).then(function(result) {
+        if (result.value) {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: element.attr('href'),
+                type: 'DELETE',
+                success: function(data) {
+                    element.closest('table').DataTable().row(element.parents('tr')).remove().draw();
+                }
+            });
+        }
+    });
+
+    e.preventDefault();
+});
 </script>
