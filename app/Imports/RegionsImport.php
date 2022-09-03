@@ -15,9 +15,10 @@ class RegionsImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return Region::updateOrCreate(
-            ['code' => $row['region']],
-            ['name' => $row['name']]
-        );
+        return Region::updateOrCreate([
+            'code' => $row['region']
+        ], [
+            'name' => $row['name']
+        ]);
     }
 }

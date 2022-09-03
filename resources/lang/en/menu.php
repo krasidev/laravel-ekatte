@@ -7,6 +7,12 @@ return [
             'edit' => 'Profile',
             'edit-password' => 'Edit password'
         ],
+        'districts' => [
+            'text' => 'Districts',
+            'index' => 'List Districts',
+            'create' => 'Add a new district',
+            'edit' => 'Edit district'
+        ],
         'regions' => [
             'text' => 'Regions',
             'index' => 'List Regions',

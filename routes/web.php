@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Panel\DistrictController;
 use App\Http\Controllers\Panel\ProfileController;
 use App\Http\Controllers\Panel\RegionController;
 use App\Http\Controllers\Panel\UserController;
@@ -31,6 +32,10 @@ Route::group([
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
+
+    //Districts
+    Route::resource('districts', DistrictController::class)->except('show');
+    Route::get('districts/data', [DistrictController::class, 'data'])->name('districts.data');
 
     //Regions
     Route::resource('regions', RegionController::class)->except('show');

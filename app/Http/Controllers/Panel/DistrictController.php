@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Panel\Region\StoreRegionRequest;
-use App\Http\Requests\Panel\Region\UpdateRegionRequest;
-use App\Repository\Panel\RegionRepository;
+use App\Http\Requests\Panel\District\StoreDistrictRequest;
+use App\Http\Requests\Panel\District\UpdateDistrictRequest;
+use App\Models\Region;
+use App\Repository\Panel\DistrictRepository;
 use Illuminate\Http\Request;
 
-class RegionController extends Controller
+class DistrictController extends Controller
 {
     private $repository;
 
-    public function __construct(RegionRepository $repository)
+    public function __construct(DistrictRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -24,7 +25,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        return view('panel.regions.index');
+        return view('panel.districts.index');
     }
 
     /**
@@ -34,23 +35,25 @@ class RegionController extends Controller
      */
     public function create()
     {
-        return view('panel.regions.create');
+        $regions = Region::all();
+
+        return view('panel.districts.create', compact('regions'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Panel\Region\StoreRegionRequest  $request
+     * @param  \App\Http\Requests\Panel\District\StoreDistrictRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRegionRequest $request)
+    public function store(StoreDistrictRequest $request)
     {
-        $this->repository->create($request->only(['code', 'name']));
+        $this->repository->create($request->only(['code', 'ekatte', 'name', 'region_id']));
 
-        return redirect()->route('panel.regions.index')
+        return redirect()->route('panel.districts.index')
             ->with('success', [
-                'title' => __('messages.panel.regions.store_success.title'),
-                'text' => __('messages.panel.regions.store_success.text')
+                'title' => __('messages.panel.districts.store_success.title'),
+                'text' => __('messages.panel.districts.store_success.text')
             ]);
     }
 
@@ -62,26 +65,27 @@ class RegionController extends Controller
      */
     public function edit($id)
     {
-        $region = $this->repository->find($id);
+        $district = $this->repository->find($id);
+        $regions = Region::all();
 
-        return view('panel.regions.edit', compact('region'));
+        return view('panel.districts.edit', compact('district', 'regions'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Panel\Region\UpdateRegionRequest  $request
+     * @param  \App\Http\Requests\Panel\District\UpdateDistrictRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRegionRequest $request, $id)
+    public function update(UpdateDistrictRequest $request, $id)
     {
-        $this->repository->update($request->only(['code', 'name']), $id);
+        $this->repository->update($request->only(['code', 'ekatte', 'name', 'region_id']), $id);
 
-        return redirect()->route('panel.regions.index')
+        return redirect()->route('panel.districts.index')
             ->with('success', [
-                'title' => __('messages.panel.regions.update_success.title'),
-                'text' => __('messages.panel.regions.update_success.text'),
+                'title' => __('messages.panel.districts.update_success.title'),
+                'text' => __('messages.panel.districts.update_success.text'),
             ]);
     }
 
