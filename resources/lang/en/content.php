@@ -15,6 +15,36 @@ return [
                 'update-password' => 'Update Password'
             ]
         ],
+        'municipalities' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'code' => 'Code',
+                    'ekatte' => 'EKATTE',
+                    'name' => 'Name',
+                    'district' => [
+                        'name' => 'District'
+                    ],
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'code' => 'Code',
+                'ekatte' => 'EKATTE',
+                'name' => 'Name',
+                'district_id' => 'District'
+            ],
+            'placeholders' => [
+                'district_id' => '-- Choose --'
+            ],
+            'buttons' => [
+                'store' => 'Create',
+                'update' => 'Update',
+                'destroy' => 'Delete'
+            ]
+        ],
         'districts' => [
             'table' => [
                 'headers' => [

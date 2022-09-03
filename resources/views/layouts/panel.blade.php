@@ -89,6 +89,15 @@
                                     $htmlMenuNav = '';
 
                                     foreach ([
+                                        'municipalities' => [
+                                            'routes' => [
+                                                'panel.municipalities.index' => [],
+                                                'panel.municipalities.create' => []
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.municipalities.edit'
+                                            ]
+                                        ],
                                         'districts' => [
                                             'routes' => [
                                                 'panel.districts.index' => [],

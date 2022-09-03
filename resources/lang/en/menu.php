@@ -7,6 +7,12 @@ return [
             'edit' => 'Profile',
             'edit-password' => 'Edit password'
         ],
+        'municipalities' => [
+            'text' => 'Municipalities',
+            'index' => 'List Municipalities',
+            'create' => 'Add a new municipality',
+            'edit' => 'Edit municipality'
+        ],
         'districts' => [
             'text' => 'Districts',
             'index' => 'List Districts',

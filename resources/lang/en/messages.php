@@ -33,6 +33,16 @@ return [
                 'text' => 'Profile password updated successfully!'
             ]
         ],
+        'municipalities' => [
+            'store_success' => [
+                'title' => '',
+                'text' => 'Municipality added successfully!'
+            ],
+            'update_success' => [
+                'title' => '',
+                'text' => 'Municipality updated successfully!'
+            ]
+        ],
         'districts' => [
             'store_success' => [
                 'title' => '',
