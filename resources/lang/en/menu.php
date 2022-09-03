@@ -7,6 +7,12 @@ return [
             'edit' => 'Profile',
             'edit-password' => 'Edit password'
         ],
+        'town-halls' => [
+            'text' => 'Town halls',
+            'index' => 'List Town halls',
+            'create' => 'Add a new town hall',
+            'edit' => 'Edit town hall'
+        ],
         'municipalities' => [
             'text' => 'Municipalities',
             'index' => 'List Municipalities',

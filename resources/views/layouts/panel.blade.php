@@ -89,6 +89,15 @@
                                     $htmlMenuNav = '';
 
                                     foreach ([
+                                        'town-halls' => [
+                                            'routes' => [
+                                                'panel.town-halls.index' => [],
+                                                'panel.town-halls.create' => []
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.town-halls.edit'
+                                            ]
+                                        ],
                                         'municipalities' => [
                                             'routes' => [
                                                 'panel.municipalities.index' => [],

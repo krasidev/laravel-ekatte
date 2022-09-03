@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RegionSeeder::class,
             DistrictSeeder::class,
-            MunicipalitySeeder::class
+            MunicipalitySeeder::class,
+            TownHallSeeder::class
         ]);
     }
 }

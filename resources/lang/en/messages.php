@@ -33,6 +33,16 @@ return [
                 'text' => 'Profile password updated successfully!'
             ]
         ],
+        'town-halls' => [
+            'store_success' => [
+                'title' => '',
+                'text' => 'Town hall added successfully!'
+            ],
+            'update_success' => [
+                'title' => '',
+                'text' => 'Town hall updated successfully!'
+            ]
+        ],
         'municipalities' => [
             'store_success' => [
                 'title' => '',

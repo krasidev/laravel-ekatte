@@ -15,6 +15,36 @@ return [
                 'update-password' => 'Update Password'
             ]
         ],
+        'town-halls' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'code' => 'Code',
+                    'ekatte' => 'EKATTE',
+                    'name' => 'Name',
+                    'municipality' => [
+                        'name' => 'Municipality'
+                    ],
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'code' => 'Code',
+                'ekatte' => 'EKATTE',
+                'name' => 'Name',
+                'municipality_id' => 'Municipality'
+            ],
+            'placeholders' => [
+                'municipality_id' => '-- Choose --'
+            ],
+            'buttons' => [
+                'store' => 'Create',
+                'update' => 'Update',
+                'destroy' => 'Delete'
+            ]
+        ],
         'municipalities' => [
             'table' => [
                 'headers' => [
