@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Panel\ProfileController;
+use App\Http\Controllers\Panel\RegionController;
 use App\Http\Controllers\Panel\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ Route::group([
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
+
+    //Regions
+    Route::resource('regions', RegionController::class)->except('show');
+    Route::get('regions/data', [RegionController::class, 'data'])->name('regions.data');
 
     //Users
     Route::resource('users', UserController::class)->except('show');

@@ -15,6 +15,27 @@ return [
                 'update-password' => 'Update Password'
             ]
         ],
+        'regions' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'code' => 'Code',
+                    'name' => 'Name',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'code' => 'Code',
+                'name' => 'Name'
+            ],
+            'buttons' => [
+                'store' => 'Create',
+                'update' => 'Update',
+                'destroy' => 'Delete'
+            ]
+        ],
         'users' => [
             'table' => [
                 'filters' => [

@@ -33,6 +33,16 @@ return [
                 'text' => 'Profile password updated successfully!'
             ]
         ],
+        'regions' => [
+            'store_success' => [
+                'title' => '',
+                'text' => 'Region added successfully!'
+            ],
+            'update_success' => [
+                'title' => '',
+                'text' => 'Region updated successfully!'
+            ]
+        ],
         'users' => [
             'store_success' => [
                 'title' => '',
