@@ -88,6 +88,7 @@ return [
                 'municipality_id' => '-- Choose --'
             ],
             'buttons' => [
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'

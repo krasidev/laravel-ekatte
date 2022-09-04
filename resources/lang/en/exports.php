@@ -2,6 +2,14 @@
 
 return [
     'panel' => [
+        'town-halls' => [
+            'code' => 'Code',
+            'ekatte' => 'Ekatte',
+            'name' => 'Name',
+            'municipality' => [
+                'name' => 'Municipality'
+            ]
+        ],
         'municipalities' => [
             'code' => 'Code',
             'ekatte' => 'Ekatte',

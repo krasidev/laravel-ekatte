@@ -43,6 +43,7 @@ Route::group([
     //Town-halls
     Route::resource('town-halls', TownHallController::class)->except('show');
     Route::get('town-halls/data', [TownHallController::class, 'data'])->name('town-halls.data');
+    Route::get('town-halls/export', [TownHallController::class, 'export'])->name('town-halls.export');
 
     //Municipalities
     Route::resource('municipalities', MunicipalityController::class)->except('show');
