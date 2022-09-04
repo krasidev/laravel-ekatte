@@ -20,8 +20,19 @@ class SettlementRepository extends Repository
                 'district',
                 'municipality',
                 'town_hall'
-            ])
-			->select('settlements.*');
+            ])->select('settlements.*');
+
+        if (request()->district_id) {
+            $settlements->where('district_id', request()->district_id);
+        }
+
+        if (request()->municipality_id) {
+            $settlements->where('municipality_id', request()->municipality_id);
+        }
+
+        if (request()->town_hall_id) {
+            $settlements->where('town_hall_id', request()->town_hall_id);
+        }
 
         $datatable = datatables()->eloquent($settlements);
 

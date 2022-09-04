@@ -147,5 +147,5 @@
 @endsection
 
 @section('scripts')
-@include('panel.settlements.shared.create-edit-script')
+@include('panel.settlements.shared.filters-script')
 @endsection

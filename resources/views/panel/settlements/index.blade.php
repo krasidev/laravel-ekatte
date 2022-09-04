@@ -2,9 +2,44 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-transparent">{{ __('menu.panel.settlements.index') }}</div>
+    <div class="card-header bg-transparent d-flex align-items-center" data-toggle="collapse" data-target="#settlementsTableFilters" aria-expanded="false" aria-controls="settlementsTableFilters">
+        {{ __('menu.panel.settlements.index') }}
+        <button type="button" class="btn flex-shrink-0 ml-auto p-0">
+            <i class="fas fa-filter text-primary"></i>
+        </button>
+    </div>
 
     <div class="card-body">
+        <div id="settlementsTableFilters" class="collapse">
+            <div class="row">
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <select name="district_id" id="district_id" class="form-control select2 settlements-table-filters" data-placeholder="{{ __('content.panel.settlements.table.filters.district_id') }}">
+                            <option value="">{{ __('content.panel.settlements.table.filters.district_id') }}</option>
+                            @foreach($districts as $district)
+                                <option value="{{ $district->id }}">{{ $district->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <select name="municipality_id" id="municipality_id" class="form-control select2 settlements-table-filters" data-placeholder="{{ __('content.panel.settlements.table.filters.municipality_id') }}" disabled="disabled">
+                            <option value="">{{ __('content.panel.settlements.table.filters.municipality_id') }}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <select name="town_hall_id" id="town_hall_id" class="form-control select2 settlements-table-filters" data-placeholder="{{ __('content.panel.settlements.table.filters.town_hall_id') }}" disabled="disabled">
+                            <option value="">{{ __('content.panel.settlements.table.filters.town_hall_id') }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
         <table id="settlements-table" class="table table-bordered">
             <thead>
                 <tr>
@@ -27,14 +62,20 @@
 
 @section('scripts')
 @include('scripts.datatables')
+@include('panel.settlements.shared.filters-script')
 <script>
     $(function() {
-        $('#settlements-table').DataTable({
+        var settlementsTableFilters = $('.settlements-table-filters');
+        var settlementsTable = $('#settlements-table').DataTable({
             serverSide: true,
             processing: true,
             ajax: {
                 url: '{!! route('panel.settlements.data') !!}',
                 data: function (data) {
+                    settlementsTableFilters.each(function(index, element) {
+                        data[element.name] = element.value;
+                    });
+
                     $('[data-dt-toggle="tooltip"]').tooltip('dispose');
                 },
                 complete: function (data) {
@@ -53,6 +94,10 @@
                 { data: 'updated_at', name: 'updated_at' },
                 { data: 'actions', name: 'actions', searchable: false, orderable: false, className: 'py-2' }
             ]
+        });
+
+        settlementsTableFilters.on('change', function() {
+            settlementsTable.draw();
         });
     });
 </script>

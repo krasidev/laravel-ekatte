@@ -28,7 +28,9 @@ class SettlementController extends Controller
      */
     public function index()
     {
-        return view('panel.settlements.index');
+        $districts = District::all();
+
+        return view('panel.settlements.index', compact('districts'));
     }
 
     /**

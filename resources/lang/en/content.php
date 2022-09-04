@@ -17,6 +17,11 @@ return [
         ],
         'settlements' => [
             'table' => [
+                'filters' => [
+                    'district_id' => 'District',
+                    'municipality_id' => 'Municipality',
+                    'town_hall_id' => 'Town hall'
+                ],
                 'headers' => [
                     'id' => 'ID',
                     'ekatte' => 'EKATTE',
