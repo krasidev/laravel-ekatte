@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-transparent">{{ __('menu.panel.municipalities.index') }}</div>
+    <div class="card-header bg-transparent d-flex align-items-center">
+        {{ __('menu.panel.municipalities.index') }}
+        <a href="{{ route('panel.municipalities.export') }}" class="btn flex-shrink-0 ml-auto p-0" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.municipalities.buttons.export') }}">
+            <i class="fas fa-download text-primary"></i>
+        </a>
+    </div>
 
     <div class="card-body">
         <table id="municipalities-table" class="table table-bordered">

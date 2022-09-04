@@ -58,6 +58,8 @@ return [
                 'town_hall_id' => '-- Choose --'
             ],
             'buttons' => [
+                'filter' => 'Filters',
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'
@@ -88,6 +90,7 @@ return [
                 'municipality_id' => '-- Choose --'
             ],
             'buttons' => [
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'
@@ -118,6 +121,7 @@ return [
                 'district_id' => '-- Choose --'
             ],
             'buttons' => [
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'
@@ -148,6 +152,7 @@ return [
                 'region_id' => '-- Choose --'
             ],
             'buttons' => [
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'
@@ -169,6 +174,7 @@ return [
                 'name' => 'Name'
             ],
             'buttons' => [
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'

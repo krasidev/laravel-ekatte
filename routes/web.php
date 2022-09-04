@@ -39,22 +39,27 @@ Route::group([
     Route::get('settlements/data', [SettlementController::class, 'data'])->name('settlements.data');
     Route::get('settlements/data-municipalities', [SettlementController::class, 'dataMunicipalities'])->name('settlements.data-municipalities');
     Route::get('settlements/data-town-halls', [SettlementController::class, 'dataTownHalls'])->name('settlements.data-town-halls');
+    Route::get('settlements/export', [SettlementController::class, 'export'])->name('settlements.export');
 
     //Town-halls
     Route::resource('town-halls', TownHallController::class)->except('show');
     Route::get('town-halls/data', [TownHallController::class, 'data'])->name('town-halls.data');
+    Route::get('town-halls/export', [TownHallController::class, 'export'])->name('town-halls.export');
 
     //Municipalities
     Route::resource('municipalities', MunicipalityController::class)->except('show');
     Route::get('municipalities/data', [MunicipalityController::class, 'data'])->name('municipalities.data');
+    Route::get('municipalities/export', [MunicipalityController::class, 'export'])->name('municipalities.export');
 
     //Districts
     Route::resource('districts', DistrictController::class)->except('show');
     Route::get('districts/data', [DistrictController::class, 'data'])->name('districts.data');
+    Route::get('districts/export', [DistrictController::class, 'export'])->name('districts.export');
 
     //Regions
     Route::resource('regions', RegionController::class)->except('show');
     Route::get('regions/data', [RegionController::class, 'data'])->name('regions.data');
+    Route::get('regions/export', [RegionController::class, 'export'])->name('regions.export');
 
     //Users
     Route::resource('users', UserController::class)->except('show');

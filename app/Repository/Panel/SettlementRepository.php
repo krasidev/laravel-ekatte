@@ -2,9 +2,11 @@
 
 namespace App\Repository\Panel;
 
+use App\Exports\Panel\SettlementsExport;
 use App\Models\Settlement;
 use App\Models\TownHall;
 use LazyElePHPant\Repository\Repository;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SettlementRepository extends Repository
 {
@@ -70,5 +72,10 @@ class SettlementRepository extends Repository
         $settlement->update($data);
 
         return $settlement;
+    }
+
+    public function export($data)
+    {
+        return Excel::download(new SettlementsExport, 'settlements-' . time() . '.xlsx');
     }
 }

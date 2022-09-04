@@ -151,4 +151,15 @@ class SettlementController extends Controller
             }
         })->get();
     }
+
+    /**
+     * Export data from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function export(Request $request)
+    {
+        return $this->repository->export($request->all());
+    }
 }
