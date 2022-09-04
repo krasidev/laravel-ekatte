@@ -2,8 +2,10 @@
 
 namespace App\Repository\Panel;
 
+use App\Exports\Panel\MunicipalitiesExport;
 use App\Models\Municipality;
 use LazyElePHPant\Repository\Repository;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MunicipalityRepository extends Repository
 {
@@ -24,5 +26,10 @@ class MunicipalityRepository extends Repository
 		});
 
         return $datatable->make(true);
+    }
+
+    public function export($data)
+    {
+        return Excel::download(new MunicipalitiesExport, 'municipalities-' . time() . '.xlsx');
     }
 }

@@ -47,6 +47,7 @@ Route::group([
     //Municipalities
     Route::resource('municipalities', MunicipalityController::class)->except('show');
     Route::get('municipalities/data', [MunicipalityController::class, 'data'])->name('municipalities.data');
+    Route::get('municipalities/export', [MunicipalityController::class, 'export'])->name('municipalities.export');
 
     //Districts
     Route::resource('districts', DistrictController::class)->except('show');

@@ -2,6 +2,14 @@
 
 return [
     'panel' => [
+        'municipalities' => [
+            'code' => 'Code',
+            'ekatte' => 'Ekatte',
+            'name' => 'Name',
+            'district' => [
+                'name' => 'District'
+            ]
+        ],
         'districts' => [
             'code' => 'Code',
             'ekatte' => 'Ekatte',
