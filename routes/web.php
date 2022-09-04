@@ -4,6 +4,7 @@ use App\Http\Controllers\Panel\DistrictController;
 use App\Http\Controllers\Panel\MunicipalityController;
 use App\Http\Controllers\Panel\ProfileController;
 use App\Http\Controllers\Panel\RegionController;
+use App\Http\Controllers\Panel\RoleController;
 use App\Http\Controllers\Panel\SettlementController;
 use App\Http\Controllers\Panel\TownHallController;
 use App\Http\Controllers\Panel\UserController;
@@ -66,5 +67,9 @@ Route::group([
     Route::get('users/data', [UserController::class, 'data'])->name('users.data');
     Route::put('users/restore/{user}', [UserController::class, 'restore'])->name('users.restore');
     Route::delete('users/force-delete/{user}', [UserController::class, 'forceDelete'])->name('users.force-delete');
+
+    //Roles
+    Route::resource('roles', RoleController::class)->except('show');
+    Route::get('roles/data', [RoleController::class, 'data'])->name('roles.data');
 
 });
