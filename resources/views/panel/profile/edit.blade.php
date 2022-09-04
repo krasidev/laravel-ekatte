@@ -58,7 +58,6 @@
     <div class="card shadow-sm">
         <div class="card-header bg-transparent d-flex align-items-center" data-toggle="collapse" data-target="#collapseUpdatePassword" aria-expanded="{{ $collapseUpdatePassword ? 'true' : 'false' }}" aria-controls="collapseUpdatePassword">
             {{ __('menu.panel.profile.edit-password') }}
-
             <i class="plus-minus-rotate flex-shrink-0 ml-auto collapsed"></i>
         </div>
 

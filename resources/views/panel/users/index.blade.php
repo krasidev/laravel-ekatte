@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-transparent d-flex align-items-center" data-toggle="collapse" data-target="#usersTableFilters" aria-expanded="false" aria-controls="usersTableFilters">
+    <div class="card-header bg-transparent d-flex align-items-center">
         {{ __('menu.panel.users.index') }}
-        <button type="button" class="btn flex-shrink-0 ml-auto p-0">
+        <button type="button" class="btn flex-shrink-0 ml-auto p-0" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.users.buttons.filter') }}" data-toggle="collapse" data-target="#usersTableFilters" aria-expanded="false" aria-controls="usersTableFilters">
             <i class="fas fa-filter text-primary"></i>
         </button>
     </div>
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-12 col-sm-4">
                     <div class="form-group">
-                        <select name="trashed" class="form-control users-table-filters">
+                        <select name="trashed" class="form-control select2 users-table-filters">
                             <option value="0">{{ __('content.panel.users.table.filters.trashed.options.all') }}</option>
                             <option value="1">{{ __('content.panel.users.table.filters.trashed.options.deleted') }}</option>
                         </select>
@@ -43,6 +43,8 @@
 @include('scripts.datatables')
 <script>
     $(function() {
+        $('.select2').select2();
+
         var usersTableFilters = $('.users-table-filters');
         var usersTable = $('#users-table').DataTable({
             serverSide: true,

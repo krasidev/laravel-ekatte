@@ -207,6 +207,7 @@ return [
                 'password_confirmation' => 'Confirm Password'
             ],
             'buttons' => [
+                'filter' => 'Filters',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete',
