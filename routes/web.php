@@ -4,6 +4,7 @@ use App\Http\Controllers\Panel\DistrictController;
 use App\Http\Controllers\Panel\MunicipalityController;
 use App\Http\Controllers\Panel\ProfileController;
 use App\Http\Controllers\Panel\RegionController;
+use App\Http\Controllers\Panel\SettlementController;
 use App\Http\Controllers\Panel\TownHallController;
 use App\Http\Controllers\Panel\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,12 @@ Route::group([
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::put('profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
+
+    //Settlements
+    Route::resource('settlements', SettlementController::class)->except('show');
+    Route::get('settlements/data', [SettlementController::class, 'data'])->name('settlements.data');
+    Route::get('settlements/data-municipalities', [SettlementController::class, 'dataMunicipalities'])->name('settlements.data-municipalities');
+    Route::get('settlements/data-town-halls', [SettlementController::class, 'dataTownHalls'])->name('settlements.data-town-halls');
 
     //Town-halls
     Route::resource('town-halls', TownHallController::class)->except('show');

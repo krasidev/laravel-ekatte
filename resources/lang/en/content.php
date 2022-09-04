@@ -15,6 +15,49 @@ return [
                 'update-password' => 'Update Password'
             ]
         ],
+        'settlements' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'ekatte' => 'EKATTE',
+                    'name' => 'Name',
+                    'settlement_kind' => [
+                        'name' => 'Kind'
+                    ],
+                    'district' => [
+                        'name' => 'District'
+                    ],
+                    'municipality' => [
+                        'name' => 'Municipality'
+                    ],
+                    'town_hall' => [
+                        'name' => 'Town hall'
+                    ],
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'ekatte' => 'EKATTE',
+                'name' => 'Name',
+                'settlement_kind_id' => 'Kind',
+                'district_id' => 'District',
+                'municipality_id' => 'Municipality',
+                'town_hall_id' => 'Town hall'
+            ],
+            'placeholders' => [
+                'settlement_kind_id' => '-- Choose --',
+                'district_id' => '-- Choose --',
+                'municipality_id' => '-- Choose --',
+                'town_hall_id' => '-- Choose --'
+            ],
+            'buttons' => [
+                'store' => 'Create',
+                'update' => 'Update',
+                'destroy' => 'Delete'
+            ]
+        ],
         'town-halls' => [
             'table' => [
                 'headers' => [

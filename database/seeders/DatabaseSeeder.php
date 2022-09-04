@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             RegionSeeder::class,
             DistrictSeeder::class,
             MunicipalitySeeder::class,
-            TownHallSeeder::class
+            TownHallSeeder::class,
+            SettlementSeeder::class
         ]);
     }
 }

@@ -7,6 +7,12 @@ return [
             'edit' => 'Profile',
             'edit-password' => 'Edit password'
         ],
+        'settlements' => [
+            'text' => 'Settlements',
+            'index' => 'List Settlements',
+            'create' => 'Add a new settlement',
+            'edit' => 'Edit settlement'
+        ],
         'town-halls' => [
             'text' => 'Town halls',
             'index' => 'List Town halls',
