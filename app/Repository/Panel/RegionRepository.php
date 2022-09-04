@@ -2,8 +2,10 @@
 
 namespace App\Repository\Panel;
 
+use App\Exports\Panel\RegionsExport;
 use App\Models\Region;
 use LazyElePHPant\Repository\Repository;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RegionRepository extends Repository
 {
@@ -24,5 +26,10 @@ class RegionRepository extends Repository
 		});
 
         return $datatable->make(true);
+    }
+
+    public function export($data)
+    {
+        return Excel::download(new RegionsExport, 'regions-' . time() . '.xlsx');
     }
 }

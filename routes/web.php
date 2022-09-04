@@ -55,6 +55,7 @@ Route::group([
     //Regions
     Route::resource('regions', RegionController::class)->except('show');
     Route::get('regions/data', [RegionController::class, 'data'])->name('regions.data');
+    Route::get('regions/export', [RegionController::class, 'export'])->name('regions.export');
 
     //Users
     Route::resource('users', UserController::class)->except('show');

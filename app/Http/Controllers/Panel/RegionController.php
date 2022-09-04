@@ -81,7 +81,7 @@ class RegionController extends Controller
         return redirect()->route('panel.regions.index')
             ->with('success', [
                 'title' => __('messages.panel.regions.update_success.title'),
-                'text' => __('messages.panel.regions.update_success.text'),
+                'text' => __('messages.panel.regions.update_success.text')
             ]);
     }
 
@@ -105,5 +105,16 @@ class RegionController extends Controller
     public function data(Request $request)
     {
         return $this->repository->data($request->all());
+    }
+
+    /**
+     * Export data from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function export(Request $request)
+    {
+        return $this->repository->export($request->all());
     }
 }

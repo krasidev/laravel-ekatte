@@ -169,6 +169,7 @@ return [
                 'name' => 'Name'
             ],
             'buttons' => [
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'
