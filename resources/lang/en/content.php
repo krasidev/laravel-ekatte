@@ -58,6 +58,8 @@ return [
                 'town_hall_id' => '-- Choose --'
             ],
             'buttons' => [
+                'filter' => 'Filters',
+                'export' => 'Export All',
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'

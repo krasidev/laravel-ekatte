@@ -39,6 +39,7 @@ Route::group([
     Route::get('settlements/data', [SettlementController::class, 'data'])->name('settlements.data');
     Route::get('settlements/data-municipalities', [SettlementController::class, 'dataMunicipalities'])->name('settlements.data-municipalities');
     Route::get('settlements/data-town-halls', [SettlementController::class, 'dataTownHalls'])->name('settlements.data-town-halls');
+    Route::get('settlements/export', [SettlementController::class, 'export'])->name('settlements.export');
 
     //Town-halls
     Route::resource('town-halls', TownHallController::class)->except('show');

@@ -2,6 +2,22 @@
 
 return [
     'panel' => [
+        'settlements' => [
+            'ekatte' => 'Ekatte',
+            'name' => 'Name',
+            'settlement_kind' => [
+                'name' => 'Kind'
+            ],
+            'district' => [
+                'name' => 'District'
+            ],
+            'municipality' => [
+                'name' => 'Municipality'
+            ],
+            'town_hall' => [
+                'name' => 'Town hall'
+            ]
+        ],
         'town-halls' => [
             'code' => 'Code',
             'ekatte' => 'Ekatte',
