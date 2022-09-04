@@ -85,7 +85,7 @@ class DistrictController extends Controller
         return redirect()->route('panel.districts.index')
             ->with('success', [
                 'title' => __('messages.panel.districts.update_success.title'),
-                'text' => __('messages.panel.districts.update_success.text'),
+                'text' => __('messages.panel.districts.update_success.text')
             ]);
     }
 
@@ -109,5 +109,16 @@ class DistrictController extends Controller
     public function data(Request $request)
     {
         return $this->repository->data($request->all());
+    }
+
+    /**
+     * Export data from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function export(Request $request)
+    {
+        return $this->repository->export($request->all());
     }
 }

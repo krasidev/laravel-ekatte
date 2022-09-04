@@ -51,6 +51,7 @@ Route::group([
     //Districts
     Route::resource('districts', DistrictController::class)->except('show');
     Route::get('districts/data', [DistrictController::class, 'data'])->name('districts.data');
+    Route::get('districts/export', [DistrictController::class, 'export'])->name('districts.export');
 
     //Regions
     Route::resource('regions', RegionController::class)->except('show');

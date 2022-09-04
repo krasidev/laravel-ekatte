@@ -2,8 +2,10 @@
 
 namespace App\Repository\Panel;
 
+use App\Exports\Panel\DistrictsExport;
 use App\Models\District;
 use LazyElePHPant\Repository\Repository;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DistrictRepository extends Repository
 {
@@ -24,5 +26,10 @@ class DistrictRepository extends Repository
 		});
 
         return $datatable->make(true);
+    }
+
+    public function export($data)
+    {
+        return Excel::download(new DistrictsExport, 'districts-' . time() . '.xlsx');
     }
 }
