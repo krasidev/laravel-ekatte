@@ -80,11 +80,6 @@
                             <hr class="dropdown-divider m-0" />
 
                             <div id="panel-side-nav-group" class="flex-grow-1 overflow-auto on-hover">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{ route('home') }}" class="nav-link active">{{ __('Dashboard') }}</a>
-                                    </li>
-                                </ul>
                                 @php
                                     $htmlMenuNav = '';
 

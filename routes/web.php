@@ -24,8 +24,6 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::group([
     'prefix' => 'panel',
     'as' => 'panel.',
