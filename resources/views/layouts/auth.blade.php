@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            @yield('script')
+            @yield('scripts')
         </main>
     </div>
 </body>

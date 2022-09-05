@@ -16,7 +16,7 @@ class RegionRepository extends Repository
 
     public function data($data)
     {
-		$regions = $this->getModel()
+		$regions = $this->getModel()->with('districts')
 			->select('regions.*');
 
         $datatable = datatables()->eloquent($regions);

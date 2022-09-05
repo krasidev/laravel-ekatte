@@ -16,8 +16,10 @@ class TownHallRepository extends Repository
 
     public function data($data)
     {
-		$townHalls = $this->getModel()->with('municipality')
-			->select('town_halls.*');
+		$townHalls = $this->getModel()->with([
+            'municipality',
+            'settlements'
+        ])->select('town_halls.*');
 
         $datatable = datatables()->eloquent($townHalls);
 

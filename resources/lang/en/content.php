@@ -6,9 +6,13 @@ return [
             'labels' => [
                 'name' => 'Name',
                 'email' => 'E-Mail Address',
+                'role' => 'Role',
                 'current_password' => 'Current Password',
                 'password' => 'Password',
                 'password_confirmation' => 'Confirm Password'
+            ],
+            'placeholders' => [
+                'role' => '-- Choose --'
             ],
             'buttons' => [
                 'update' => 'Update',
@@ -194,6 +198,7 @@ return [
                     'id' => 'ID',
                     'name' => 'Name',
                     'email' => 'E-Mail Address',
+                    'roles' => 'Role',
                     'created_at' => 'Created At',
                     'updated_at' => 'Updated At',
                     'deleted_at' => 'Deleted At',
@@ -204,7 +209,11 @@ return [
                 'name' => 'Name',
                 'email' => 'E-Mail Address',
                 'password' => 'Password',
-                'password_confirmation' => 'Confirm Password'
+                'password_confirmation' => 'Confirm Password',
+                'role' => 'Role'
+            ],
+            'placeholders' => [
+                'role' => '-- Choose --'
             ],
             'buttons' => [
                 'filter' => 'Filters',
@@ -212,6 +221,52 @@ return [
                 'update' => 'Update',
                 'destroy' => 'Delete',
                 'restore' => 'Restore'
+            ]
+        ],
+        'roles' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'name' => 'Role',
+                    'guard_name' => 'Guard Name',
+                    'readonly' => 'Readonly',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'name' => 'Role'
+            ],
+            'legends' => [
+                'permissions' => 'Permissions'
+            ],
+            'buttons' => [
+                'store' => 'Create',
+                'update' => 'Update',
+                'destroy' => 'Delete'
+            ]
+        ],
+        'permissions' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'name' => 'Permission',
+                    'guard_name' => 'Guard Name',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'name' => 'Permission',
+                'guard_name' => 'Guard Name'
+            ],
+            'legends' => [
+                'roles' => 'Roles'
+            ],
+            'buttons' => [
+                'update' => 'Update'
             ]
         ]
     ]

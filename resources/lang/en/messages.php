@@ -92,6 +92,22 @@ return [
                 'title' => '',
                 'text' => 'User updated successfully!'
             ]
+        ],
+        'roles' => [
+            'store_success' => [
+                'title' => '',
+                'text' => 'Role added successfully!'
+            ],
+            'update_success' => [
+                'title' => '',
+                'text' => 'Role updated successfully!'
+            ]
+        ],
+        'permissions' => [
+            'update_success' => [
+                'title' => '',
+                'text' => 'Permission updated successfully!'
+            ]
         ]
     ]
 ];

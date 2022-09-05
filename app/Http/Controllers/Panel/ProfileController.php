@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Panel\Profile\UpdatePasswordProfileRequest;
 use App\Http\Requests\Panel\Profile\UpdateProfileRequest;
+use App\Models\Role;
 use App\Repository\Panel\ProfileRepository;
 
 class ProfileController extends Controller
@@ -23,7 +24,9 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('panel.profile.edit');
+        $roles = Role::all();
+
+        return view('panel.profile.edit', compact('roles'));
     }
 
     /**
@@ -34,7 +37,7 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-        $this->repository->update($request->only(['name', 'email']), auth()->user()->id);
+        $this->repository->update($request->only(['name', 'email', 'role']), auth()->user()->id);
 
         return redirect()->route('panel.profile.edit')
             ->with('success', [

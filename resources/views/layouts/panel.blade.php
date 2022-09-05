@@ -87,7 +87,9 @@
                                         'settlements' => [
                                             'routes' => [
                                                 'panel.settlements.index' => [],
-                                                'panel.settlements.create' => []
+                                                'panel.settlements.create' => [
+                                                    'permission' => 'panel.settlements.create'
+                                                ]
                                             ],
                                             'extended_routes' => [
                                                 'panel.settlements.edit'
@@ -95,8 +97,12 @@
                                         ],
                                         'town-halls' => [
                                             'routes' => [
-                                                'panel.town-halls.index' => [],
-                                                'panel.town-halls.create' => []
+                                                'panel.town-halls.index' => [
+                                                    'permission' => 'panel.town-halls.index'
+                                                ],
+                                                'panel.town-halls.create' => [
+                                                    'permission' => 'panel.town-halls.create'
+                                                ]
                                             ],
                                             'extended_routes' => [
                                                 'panel.town-halls.edit'
@@ -104,8 +110,12 @@
                                         ],
                                         'municipalities' => [
                                             'routes' => [
-                                                'panel.municipalities.index' => [],
-                                                'panel.municipalities.create' => []
+                                                'panel.municipalities.index' => [
+                                                    'permission' => 'panel.municipalities.index'
+                                                ],
+                                                'panel.municipalities.create' => [
+                                                    'permission' => 'panel.municipalities.create'
+                                                ]
                                             ],
                                             'extended_routes' => [
                                                 'panel.municipalities.edit'
@@ -113,8 +123,12 @@
                                         ],
                                         'districts' => [
                                             'routes' => [
-                                                'panel.districts.index' => [],
-                                                'panel.districts.create' => []
+                                                'panel.districts.index' => [
+                                                    'permission' => 'panel.districts.index'
+                                                ],
+                                                'panel.districts.create' => [
+                                                    'permission' => 'panel.districts.create'
+                                                ]
                                             ],
                                             'extended_routes' => [
                                                 'panel.districts.edit'
@@ -122,8 +136,12 @@
                                         ],
                                         'regions' => [
                                             'routes' => [
-                                                'panel.regions.index' => [],
-                                                'panel.regions.create' => []
+                                                'panel.regions.index' => [
+                                                    'permission' => 'panel.regions.index'
+                                                ],
+                                                'panel.regions.create' => [
+                                                    'permission' => 'panel.regions.create'
+                                                ]
                                             ],
                                             'extended_routes' => [
                                                 'panel.regions.edit'
@@ -131,11 +149,38 @@
                                         ],
                                         'users' => [
                                             'routes' => [
-                                                'panel.users.index' => [],
-                                                'panel.users.create' => []
+                                                'panel.users.index' => [
+                                                    'permission' => 'panel.users.index'
+                                                ],
+                                                'panel.users.create' => [
+                                                    'permission' => 'panel.users.create'
+                                                ]
                                             ],
                                             'extended_routes' => [
                                                 'panel.users.edit'
+                                            ]
+                                        ],
+                                        'roles' => [
+                                            'routes' => [
+                                                'panel.roles.index' => [
+                                                    'permission' => 'panel.roles.index'
+                                                ],
+                                                'panel.roles.create' => [
+                                                    'permission' => 'panel.roles.create'
+                                                ]
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.roles.edit'
+                                            ]
+                                        ],
+                                        'permissions' => [
+                                            'routes' => [
+                                                'panel.permissions.index' => [
+                                                    'permission' => 'panel.permissions.index'
+                                                ],
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.permissions.edit'
                                             ]
                                         ]
                                     ] as $module => $moduleOptions) {
@@ -143,10 +188,14 @@
                                             $htmlMenuSubnav = '';
 
                                             foreach ($moduleOptions['routes'] as $route => $options) {
-                                                $htmlMenuSubnav .= '<li class="nav-item">
-                                                    <a href="' . route($route) . '" class="nav-link ' . ($currentRouteName == $route ? 'active' : '') . '">
-                                                        ' . __('menu.' . ($options['text'] ?? $route)) . '</a>
-                                                </li>';
+                                                if (!isset($options['permission']) || (
+                                                    auth()->user()->hasRole('admin') || auth()->user()->hasPermissionTo($options['permission'])
+                                                )) {
+                                                    $htmlMenuSubnav .= '<li class="nav-item">
+                                                        <a href="' . route($route) . '" class="nav-link ' . ($currentRouteName == $route ? 'active' : '') . '">
+                                                            ' . __('menu.' . ($options['text'] ?? $route)) . '</a>
+                                                    </li>';
+                                                }
                                             }
 
                                             if (!empty($htmlMenuSubnav)) {
@@ -162,7 +211,9 @@
 
                                                 $htmlMenuNav .= '<div id="collapse-' . $module . '" class="collapse ' . ($isModuleOpen ? 'show' : '') . '"><ul class="nav flex-column">' . $htmlMenuSubnav . '</ul></div></li>';
                                             }
-                                        } else {
+                                        } else if (!isset($moduleOptions['permission']) || (
+                                            auth()->user()->hasRole('admin') || auth()->user()->hasPermissionTo($moduleOptions['permission'])
+                                        )) {
                                             $htmlMenuNav .= '<li class="nav-item">
                                                 <a href="' . route($moduleOptions['route']) . '" class="nav-link ' . ($currentRouteName == $moduleOptions['route'] ? 'active' : '') . '">
                                                     ' . __('menu.panel.' . $module . '.text') . '

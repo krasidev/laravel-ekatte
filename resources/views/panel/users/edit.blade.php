@@ -59,6 +59,31 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" />
                     </div>
                 </div>
+
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <label for="role">{{ __('content.panel.users.labels.role') }}: <span class="text-danger">*</span></label>
+
+                        @php
+                            $oldRole = old('role', optional(optional($user->roles)->pluck('id'))->first());
+                        @endphp
+                        <select name="role" id="role" class="form-control select2 @error('role') is-invalid @enderror" data-placeholder="{{ __('content.panel.users.placeholders.role') }}">
+                            <option value="">{{ __('content.panel.users.placeholders.role') }}</option>
+                            @foreach($roles as $role)
+                            @php
+                                $selected = $role->id == $oldRole ? 'selected="selected"' : '';
+                            @endphp
+                            <option value="{{ $role->id }}" {{ $selected }}>{{ $role->name }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('role')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
             <hr class="dropdown-divider mt-0 mb-3">
@@ -67,4 +92,12 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $('.select2').select2({
+        allowClear: true
+    });
+</script>
 @endsection
