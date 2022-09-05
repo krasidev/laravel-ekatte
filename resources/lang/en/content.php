@@ -6,9 +6,13 @@ return [
             'labels' => [
                 'name' => 'Name',
                 'email' => 'E-Mail Address',
+                'role' => 'Role',
                 'current_password' => 'Current Password',
                 'password' => 'Password',
                 'password_confirmation' => 'Confirm Password'
+            ],
+            'placeholders' => [
+                'role' => '-- Choose --'
             ],
             'buttons' => [
                 'update' => 'Update',

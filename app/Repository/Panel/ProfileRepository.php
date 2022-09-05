@@ -13,6 +13,17 @@ class ProfileRepository extends Repository
         return User::class;
     }
 
+    public function update(array $data, $id, $attribute = 'id')
+    {
+        $profile = $this->getModel()->findOrFail($id);
+
+        $profile->update($data);
+
+        $profile->syncRoles([$data['role']]);
+
+        return $profile;
+    }
+
     public function updatePassword(array $data, $id)
     {
         $profile = $this->getModel()->findOrFail($id);
