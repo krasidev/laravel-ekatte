@@ -35,7 +35,7 @@ class PermissionRepository extends Repository
     {
         $permission = $this->getModel()->findOrFail($id);
         $readonlyRoles = $permission->roles->where('readonly', 1)->pluck('id')->toArray();
-        $role = Role::whereIn('id', $data['roles'])->where('readonly', 0)->pluck('id')->toArray();
+        $role = Role::whereIn('id', $data['roles'] ?? [])->where('readonly', 0)->pluck('id')->toArray();
 
         $permission->syncRoles(array_merge(
             $readonlyRoles,
