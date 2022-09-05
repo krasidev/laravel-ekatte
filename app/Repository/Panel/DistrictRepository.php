@@ -16,8 +16,10 @@ class DistrictRepository extends Repository
 
     public function data($data)
     {
-		$districts = $this->getModel()->with('region')
-			->select('districts.*');
+		$districts = $this->getModel()->with([
+            'region',
+            'municipalities'
+        ])->select('districts.*');
 
         $datatable = datatables()->eloquent($districts);
 

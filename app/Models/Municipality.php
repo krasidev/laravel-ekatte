@@ -35,4 +35,9 @@ class Municipality extends Model
     {
         return $this->belongsTo(District::class, 'district_id', 'id');
     }
+
+    public function townHalls()
+    {
+        return $this->hasMany(TownHall::class, 'municipality_id', 'id');
+    }
 }

@@ -16,8 +16,10 @@ class MunicipalityRepository extends Repository
 
     public function data($data)
     {
-		$municipalities = $this->getModel()->with('district')
-			->select('municipalities.*');
+		$municipalities = $this->getModel()->with([
+            'district',
+            'townHalls'
+        ])->select('municipalities.*');
 
         $datatable = datatables()->eloquent($municipalities);
 

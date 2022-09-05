@@ -35,4 +35,9 @@ class TownHall extends Model
     {
         return $this->belongsTo(Municipality::class, 'municipality_id', 'id');
     }
+
+    public function settlements()
+    {
+        return $this->hasMany(Settlement::class, 'town_hall_id', 'id');
+    }
 }
