@@ -2,10 +2,11 @@
 
 return [
     'panel' => [
-        'searchbar' => 'Search menu',
+        'searchbar' => 'Search in menu...',
         'profile' => [
             'edit' => 'Profile',
-            'edit-password' => 'Edit password'
+            'edit-password' => 'Edit password',
+            'logout' => 'Logout'
         ],
         'settlements' => [
             'text' => 'Settlements',
