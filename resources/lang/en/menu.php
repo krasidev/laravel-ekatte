@@ -48,6 +48,11 @@ return [
             'index' => 'List Roles',
             'create' => 'Add a new role',
             'edit' => 'Edit role'
+        ],
+        'permissions' => [
+            'text' => 'Permissions',
+            'index' => 'List Permissions',
+            'edit' => 'Edit permission'
         ]
     ]
 ];

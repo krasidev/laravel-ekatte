@@ -227,9 +227,7 @@ return [
                 ]
             ],
             'labels' => [
-                'name' => 'Role',
-                'guard_name' => 'Guard Name',
-                'readonly' => 'Readonly'
+                'name' => 'Role'
             ],
             'legends' => [
                 'permissions' => 'Permissions'
@@ -238,6 +236,28 @@ return [
                 'store' => 'Create',
                 'update' => 'Update',
                 'destroy' => 'Delete'
+            ]
+        ],
+        'permissions' => [
+            'table' => [
+                'headers' => [
+                    'id' => 'ID',
+                    'name' => 'Permission',
+                    'guard_name' => 'Guard Name',
+                    'created_at' => 'Created At',
+                    'updated_at' => 'Updated At',
+                    'actions' => 'Actions'
+                ]
+            ],
+            'labels' => [
+                'name' => 'Permission',
+                'guard_name' => 'Guard Name'
+            ],
+            'legends' => [
+                'roles' => 'Roles'
+            ],
+            'buttons' => [
+                'update' => 'Update'
             ]
         ]
     ]

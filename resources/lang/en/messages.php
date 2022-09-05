@@ -102,6 +102,12 @@ return [
                 'title' => '',
                 'text' => 'Role updated successfully!'
             ]
+        ],
+        'permissions' => [
+            'update_success' => [
+                'title' => '',
+                'text' => 'Permission updated successfully!'
+            ]
         ]
     ]
 ];

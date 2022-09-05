@@ -146,6 +146,14 @@
                                             'extended_routes' => [
                                                 'panel.roles.edit'
                                             ]
+                                        ],
+                                        'permissions' => [
+                                            'routes' => [
+                                                'panel.permissions.index' => [],
+                                            ],
+                                            'extended_routes' => [
+                                                'panel.permissions.edit'
+                                            ]
                                         ]
                                     ] as $module => $moduleOptions) {
                                         if (isset($moduleOptions['routes'])) {

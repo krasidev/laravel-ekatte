@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Panel\DistrictController;
 use App\Http\Controllers\Panel\MunicipalityController;
+use App\Http\Controllers\Panel\PermissionController;
 use App\Http\Controllers\Panel\ProfileController;
 use App\Http\Controllers\Panel\RegionController;
 use App\Http\Controllers\Panel\RoleController;
@@ -72,4 +73,7 @@ Route::group([
     Route::resource('roles', RoleController::class)->except('show');
     Route::get('roles/data', [RoleController::class, 'data'])->name('roles.data');
 
+    //Permissions
+    Route::resource('permissions', PermissionController::class)->only(['index', 'edit', 'update']);
+    Route::get('permissions/data', [PermissionController::class, 'data'])->name('permissions.data');
 });
