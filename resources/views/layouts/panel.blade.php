@@ -28,11 +28,28 @@
 
             <ul class="navbar-nav flex-row ml-auto">
                 <li class="nav-item dropdown">
-                    <a href="#" id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @php
+                        $currentLocale = LaravelLocalization::getCurrentLocale();
+                    @endphp
+                    <a href="#" class="nav-link dropdown-toggle pr-2" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="text-uppercase">{{ $currentLocale }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right position-absolute">
+                        @foreach(LaravelLocalization::getLocalesOrder() as $localeCode => $properties)
+                        <li>
+                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" class="dropdown-item @if($currentLocale == $localeCode) disabled @endif">
+                                {{ $properties['native'] }}
+                                (<span class="text-uppercase">{{ $localeCode }}</span>)
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle pl-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
-
-                    <ul class="dropdown-menu dropdown-menu-right position-absolute" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu dropdown-menu-right position-absolute">
                         <li>
                             <a href="{{ route('panel.profile.edit') }}" class="dropdown-item @if($currentRouteName == 'panel.profile.edit') active @endif">
                                 {{ __('menu.panel.profile.edit') }}
