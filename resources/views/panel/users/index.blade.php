@@ -4,9 +4,11 @@
 <div class="card shadow-sm">
     <div class="card-header bg-transparent d-flex align-items-center">
         {{ __('menu.panel.users.index') }}
-        <button type="button" class="btn flex-shrink-0 ml-auto p-0" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.users.buttons.filter') }}" data-toggle="collapse" data-target="#usersTableFilters" aria-expanded="false" aria-controls="usersTableFilters">
-            <i class="fas fa-filter text-primary"></i>
-        </button>
+        <div class="btn-group btn-group-sm flex-shrink-0 ml-auto" role="group">
+            <button type="button" class="btn p-0" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.users.buttons.filter') }}" data-toggle="collapse" data-target="#usersTableFilters" aria-expanded="false" aria-controls="usersTableFilters">
+                <i class="fas fa-filter text-primary"></i>
+            </button>
+        </div>
     </div>
 
     <div class="card-body">

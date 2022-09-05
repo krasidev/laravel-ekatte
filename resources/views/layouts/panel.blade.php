@@ -52,7 +52,7 @@
                     <ul class="dropdown-menu dropdown-menu-right position-absolute">
                         <li>
                             <a href="{{ route('panel.profile.edit') }}" class="dropdown-item @if($currentRouteName == 'panel.profile.edit') active @endif">
-                                <i class="fas fa-user text-primary mr-1"></i>
+                                <i class="fas fa-user text-dark mr-1"></i>
                                 {{ __('menu.panel.profile.edit') }}
                             </a>
                         </li>
@@ -62,7 +62,7 @@
                         <li>
                             <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                <i class="fas fa-power-off text-primary mr-1"></i>
+                                <i class="fas fa-power-off text-dark mr-1"></i>
                                 {{ __('menu.panel.profile.logout') }}
                             </a>
 

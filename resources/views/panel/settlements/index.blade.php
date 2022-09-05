@@ -4,11 +4,11 @@
 <div class="card shadow-sm">
     <div class="card-header bg-transparent d-flex align-items-center">
         {{ __('menu.panel.settlements.index') }}
-        <div class="btn-group btn-group-sm flex-shrink-0 ml-auto p-0" role="group">
-            <button type="button" class="btn" data-toggle="collapse" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.settlements.buttons.filter') }}" data-target="#settlementsTableFilters" aria-expanded="false" aria-controls="settlementsTableFilters">
+        <div class="btn-group btn-group-sm flex-shrink-0 ml-auto" role="group">
+            <button type="button" class="btn p-0" data-toggle="collapse" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.settlements.buttons.filter') }}" data-target="#settlementsTableFilters" aria-expanded="false" aria-controls="settlementsTableFilters">
                 <i class="fas fa-filter text-primary"></i>
             </button>
-            <a href="{{ route('panel.settlements.export') }}" class="btn" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.settlements.buttons.export') }}">
+            <a href="{{ route('panel.settlements.export') }}" class="btn ml-2 p-0" data-dt-toggle="tooltip" data-placement="left" title="{{ __('content.panel.settlements.buttons.export') }}">
                 <i class="fas fa-download text-primary"></i>
             </a>
         </div>
