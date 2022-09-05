@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Panel\User\StoreUserRequest;
 use App\Http\Requests\Panel\User\UpdateUserRequest;
+use App\Models\Role;
 use App\Repository\Panel\UserRepository;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('panel.users.create');
+        $roles = Role::all();
+
+        return view('panel.users.create', compact('roles'));
     }
 
     /**
@@ -45,7 +48,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $this->repository->create($request->only(['name', 'email', 'password']));
+        $this->repository->create($request->only(['name', 'email', 'password', 'role']));
 
         return redirect()->route('panel.users.index')
             ->with('success', [
@@ -63,8 +66,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = $this->repository->find($id);
+        $roles = Role::all();
 
-        return view('panel.users.edit', compact('user'));
+        return view('panel.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -76,7 +80,7 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-        $this->repository->update($request->only(['name', 'email', 'password']), $id);
+        $this->repository->update($request->only(['name', 'email', 'password', 'role']), $id);
 
         return redirect()->route('panel.users.index')
             ->with('success', [

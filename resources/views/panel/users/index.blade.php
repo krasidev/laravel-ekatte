@@ -28,6 +28,7 @@
                     <th>{{ __('content.panel.users.table.headers.id') }}</th>
                     <th>{{ __('content.panel.users.table.headers.name') }}</th>
                     <th>{{ __('content.panel.users.table.headers.email') }}</th>
+                    <th>{{ __('content.panel.users.table.headers.roles') }}</th>
                     <th>{{ __('content.panel.users.table.headers.created_at') }}</th>
                     <th>{{ __('content.panel.users.table.headers.updated_at') }}</th>
                     <th>{{ __('content.panel.users.table.headers.deleted_at') }}</th>
@@ -72,6 +73,7 @@
                 { data: 'id', name: 'id', searchable: false },
                 { data: 'name', name: 'name' },
                 { data: 'email', name: 'email' },
+                { data: 'roles', name: 'roles', searchable: false, orderable: false },
                 { data: 'created_at', name: 'created_at' },
                 { data: 'updated_at', name: 'updated_at' },
                 { data: 'deleted_at', name: 'deleted_at', visible: false },

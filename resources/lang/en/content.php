@@ -194,6 +194,7 @@ return [
                     'id' => 'ID',
                     'name' => 'Name',
                     'email' => 'E-Mail Address',
+                    'roles' => 'Role',
                     'created_at' => 'Created At',
                     'updated_at' => 'Updated At',
                     'deleted_at' => 'Deleted At',
@@ -204,7 +205,11 @@ return [
                 'name' => 'Name',
                 'email' => 'E-Mail Address',
                 'password' => 'Password',
-                'password_confirmation' => 'Confirm Password'
+                'password_confirmation' => 'Confirm Password',
+                'role' => 'Role'
+            ],
+            'placeholders' => [
+                'role' => '-- Choose --'
             ],
             'buttons' => [
                 'filter' => 'Filters',
