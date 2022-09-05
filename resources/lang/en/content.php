@@ -251,7 +251,7 @@ return [
             'table' => [
                 'headers' => [
                     'id' => 'ID',
-                    'name' => 'Permission',
+                    'name' => 'Name',
                     'guard_name' => 'Guard Name',
                     'created_at' => 'Created At',
                     'updated_at' => 'Updated At',
@@ -259,7 +259,7 @@ return [
                 ]
             ],
             'labels' => [
-                'name' => 'Permission',
+                'name' => 'Name',
                 'guard_name' => 'Guard Name'
             ],
             'legends' => [

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-transparent">{{ __('menu.panel.roles.create') }}</div>
+    <div class="card-header bg-transparent">{{ __('menu.panel.roles.edit') }}</div>
 
     <div class="card-body">
         <form action="{{ route('panel.roles.update', ['role' => $role->id]) }}" method="post" autocomplete="off">

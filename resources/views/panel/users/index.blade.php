@@ -63,8 +63,8 @@
                 complete: function (data) {
                     var trashed = parseInt(data.responseJSON.input.trashed);
 
-                    usersTable.column(4).visible(!trashed);
-                    usersTable.column(5).visible(trashed);
+                    usersTable.column(5).visible(!trashed);
+                    usersTable.column(6).visible(trashed);
 
                     $('[data-dt-toggle="tooltip"]').tooltip();
                 }

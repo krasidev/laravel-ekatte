@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-transparent">{{ __('menu.panel.town-halls.create') }}</div>
+    <div class="card-header bg-transparent">{{ __('menu.panel.town-halls.edit') }}</div>
 
     <div class="card-body">
         <form action="{{ route('panel.town-halls.update', ['town_hall' => $town_hall->id]) }}" method="post" autocomplete="off">

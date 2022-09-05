@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-transparent">{{ __('menu.panel.settlements.create') }}</div>
+    <div class="card-header bg-transparent">{{ __('menu.panel.settlements.edit') }}</div>
 
     <div class="card-body">
         <form action="{{ route('panel.settlements.update', ['settlement' => $settlement->id]) }}" method="post" autocomplete="off">
